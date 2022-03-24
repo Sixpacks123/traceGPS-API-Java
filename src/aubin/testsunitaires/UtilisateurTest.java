@@ -9,17 +9,18 @@ import org.junit.Before;
 import org.junit.Test;
 
 import aubin.classes.Outils;
+import aubin.classes.Point;
 import aubin.classes.Utilisateur;
 
 public class UtilisateurTest {
-	
+
 	private Utilisateur utilisateur1;
 	private Utilisateur utilisateur2;
-	
+
 	@Before
 	public void setUp() throws Exception {
 		utilisateur1 = new Utilisateur();
-		
+
 		int unId = 111;
 		String unPseudo = "toto";
 		String unMdpSha1 = "abcdef";
@@ -34,117 +35,135 @@ public class UtilisateurTest {
 
 	@Test
 	public void testGetId() {
-		fail("Not yet implemented");	
+		assertEquals(0, utilisateur1.getId());
+		assertEquals(111, utilisateur2.getId());
 	}
 
 	@Test
 	public void testSetId() {
-		fail("Not yet implemented");
+		utilisateur1.setId(111);
+		assertEquals(111, utilisateur1.getId());
 	}
 
 	@Test
 	public void testGetPseudo() {
-		fail("Not yet implemented");
+		assertEquals("", utilisateur1.getPseudo());
+		assertEquals("toto", utilisateur2.getPseudo());
 	}
 
 	@Test
 	public void testSetPseudo() {
-		fail("Not yet implemented");
+		utilisateur1.setPseudo("toto");
+		assertEquals("toto", utilisateur1.getPseudo());
 	}
 
 	@Test
 	public void testGetMdpSha1() {
-		fail("Not yet implemented");
+		assertEquals("", utilisateur1.getMdpSha1());
+		assertEquals("abcdef", utilisateur2.getMdpSha1());
 	}
 
 	@Test
 	public void testSetMdpSha1() {
-		fail("Not yet implemented");
+		utilisateur1.setMdpSha1("abcdef");
+		assertEquals("abcdef", utilisateur1.getMdpSha1());
 	}
 
 	@Test
 	public void testGetAdrMail() {
-		fail("Not yet implemented");
+		assertEquals("", utilisateur1.getAdrMail());
+		assertEquals("toto@free.fr", utilisateur2.getAdrMail());
 	}
 
 	@Test
 	public void testSetAdrMail() {
-		fail("Not yet implemented");
+		utilisateur1.setAdrMail("toto@free.fr");
+		assertEquals("toto@free.fr", utilisateur1.getAdrMail());
 	}
 
 	@Test
 	public void testGetNumTel() {
-		fail("Not yet implemented");
+		assertEquals("", utilisateur1.getNumTel());
+		assertEquals("11.22.33.44.55", utilisateur2.getNumTel());
 	}
 
 	@Test
 	public void testSetNumTel() {
-		fail("Not yet implemented");
+		utilisateur1.setNumTel("11.22.33.44.55");
+		assertEquals("11.22.33.44.55", utilisateur1.getNumTel());
 	}
 
 	@Test
 	public void testGetNiveau() {
-		fail("Not yet implemented");
+		assertEquals(0, utilisateur1.getNiveau());
+		assertEquals(1, utilisateur2.getNiveau());
 	}
 
 	@Test
 	public void testSetNiveau() {
-		fail("Not yet implemented");
+		utilisateur1.setNiveau(1);
+		assertEquals(1, utilisateur1.getNiveau());
 	}
 
 	@Test
 	public void testGetDateCreation() {
-		fail("Not yet implemented");
+		assertEquals(null, utilisateur1.getDateCreation());
+		assertEquals("21/06/2016 14:00:00", Outils.formaterDateHeureFR(utilisateur2.getDateCreation()));
 	}
 
 	@Test
 	public void testSetDateCreation() throws ParseException {
-		fail("Not yet implemented");
+		utilisateur1.setDateCreation(Outils.convertirEnDateHeure("21/06/2016 14:00:00"));
+		assertEquals("21/06/2016 14:00:00", Outils.formaterDateHeureFR(utilisateur1.getDateCreation()));
 	}
 
 	@Test
 	public void testGetNbTraces() {
-		fail("Not yet implemented");
+		assertEquals(0, utilisateur1.getNbTraces());
+		assertEquals(3, utilisateur2.getNbTraces());
 	}
 
 	@Test
 	public void testSetNbTraces() {
-		fail("Not yet implemented");
+		utilisateur1.setNbTraces(3);
+		assertEquals(3, utilisateur1.getNbTraces());
 	}
 
 	@Test
 	public void testGetDateDerniereTrace() {
-		fail("Not yet implemented");
+		assertEquals(null, utilisateur1.getDateDerniereTrace());
+		assertEquals("28/06/2016 14:00:00", Outils.formaterDateHeureFR(utilisateur2.getDateDerniereTrace()));
 	}
 
 	@Test
 	public void testSetDateDerniereTrace() throws ParseException {
-		fail("Not yet implemented");
+		utilisateur1.setDateDerniereTrace(Outils.convertirEnDateHeure("28/06/2016 14:00:00"));
+		assertEquals("28/06/2016 14:00:00", Outils.formaterDateHeureFR(utilisateur1.getDateDerniereTrace()));
 	}
 
 	@Test
 	public void testToString() {
 		String msg = "";
-	    msg += "id : " + "0" + "\n";
-	    msg += "pseudo : " + "" + "\n";
-	    msg += "mdpSha1 : " + "" + "\n";
-	    msg += "adrMail : " + "" + "\n";
-	    msg += "numTel : " + "" + "\n";
-	    msg += "niveau : " + "0" + "\n";
-	    msg += "nbTraces : " + "0" + "\n";
-	    assertEquals("Test toString", msg, utilisateur1.toString());
-	    
+		msg += "id : " + "0" + "\n";
+		msg += "pseudo : " + "" + "\n";
+		msg += "mdpSha1 : " + "" + "\n";
+		msg += "adrMail : " + "" + "\n";
+		msg += "numTel : " + "" + "\n";
+		msg += "niveau : " + "0" + "\n";
+		msg += "nbTraces : " + "0" + "\n";
+		assertEquals("Test toString", msg, utilisateur1.toString());
+
 		msg = "";
-	    msg += "id : " + "111" + "\n";
-	    msg += "pseudo : " + "toto" + "\n";
-	    msg += "mdpSha1 : " + "abcdef" + "\n";
-	    msg += "adrMail : " + "toto@free.fr" + "\n";
-	    msg += "numTel : " + "11.22.33.44.55" + "\n";
-	    msg += "niveau : " + "1" + "\n";
-	    msg += "dateCreation : " + "21/06/2016 14:00:00" + "\n";
-	    msg += "nbTraces : " + "3" + "\n";
-	    msg += "dateDerniereTrace : " + "28/06/2016 14:00:00" + "\n";
-	    assertEquals("Test toString", msg, utilisateur2.toString());
+		msg += "id : " + "111" + "\n";
+		msg += "pseudo : " + "toto" + "\n";
+		msg += "mdpSha1 : " + "abcdef" + "\n";
+		msg += "adrMail : " + "toto@free.fr" + "\n";
+		msg += "numTel : " + "11.22.33.44.55" + "\n";
+		msg += "niveau : " + "1" + "\n";
+		msg += "dateCreation : " + "21/06/2016 14:00:00" + "\n";
+		msg += "nbTraces : " + "3" + "\n";
+		msg += "dateDerniereTrace : " + "28/06/2016 14:00:00" + "\n";
+		assertEquals("Test toString", msg, utilisateur2.toString());
 	}
 
 }

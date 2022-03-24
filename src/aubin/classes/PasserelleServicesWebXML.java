@@ -4,7 +4,7 @@
 // Elle fournit des méthodes pour appeler les différents services web
 // Elle utilise le modèle Jaxp pour parcourir le document XML
 // Le modèle Jaxp fait partie du JDK (et également du SDK Android)
-// Dernière mise à jour : 26/03/2019 par VALLÉE Dylan
+// Dernière mise à jour :  par aubin
 
 package aubin.classes;
 
