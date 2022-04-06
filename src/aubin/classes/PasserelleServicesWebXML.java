@@ -4,8 +4,13 @@
 // Elle fournit des méthodes pour appeler les différents services web
 // Elle utilise le modèle Jaxp pour parcourir le document XML
 // Le modèle Jaxp fait partie du JDK (et également du SDK Android)
-// Dernière mise à jour : 16/04/2021 par Jim
-
+//
+/**
+ * Description
+ * Cette classe hérite de la classe Passerelle
+ * Elle fournit des méthodes pour appeler les différents services web
+ * Elle utilise le modèle Jaxp pour parcourir le document XML
+ */
 package aubin.classes;
 
 import java.util.ArrayList;
@@ -49,10 +54,13 @@ public class PasserelleServicesWebXML extends PasserelleXML {
 	// ------------------------------------- méthodes déjà développées ---------------------------------
 	// -------------------------------------------------------------------------------------------------
 
-	// Méthode statique pour se connecter (service Connecter)
-	// La méthode doit recevoir 2 paramètres :
-	//    pseudo : le pseudo de l'utilisateur qui fait appel au service web
-	//    mdpSha1 : le mot de passe hashé en sha1
+	/**
+	 * Description
+	 *  Méthode statique pour se connecter (service Connecter)
+	*    @param pseudo : le pseudo de l'utilisateur qui fait appel au service web
+	 *   @param mdpSha1 : le mot de passe hashé en sha1
+	* 		@author aubin
+	*/
 	public static String connecter(String pseudo, String mdpSha1)
 	{
 		String reponse = "";
@@ -81,11 +89,15 @@ public class PasserelleServicesWebXML extends PasserelleXML {
 		}
 	}
 
-	// Méthode statique pour obtenir la liste de tous les utilisateurs de niveau 1 (service GetTousLesUtilisateurs)
-	// La méthode doit recevoir 3 paramètres :
-	//    pseudo : le pseudo de l'utilisateur qui fait appel au service web
-	//    mdpSha1 : le mot de passe hashé en sha1
-	//    lesUtilisateurs : collection (vide) à remplir à partir des données fournies par le service web
+	/**
+	 * Description
+	 * 	Méthode statique pour obtenir la liste de tous les utilisateurs de niveau 1 (service GetTousLesUtilisateurs)
+	 * @param pseudo : le pseudo de l'utilisateur qui fait appel au service web
+	 * @param mdpSha1 : le mot de passe hashé en sha1
+	 * @param lesUtilisateurs : collection (vide) à remplir à partir des données fournies par le service web
+	 * @author aubin
+ 	 */
+
 	public static String getTousLesUtilisateurs(String pseudo, String mdpSha1, ArrayList<Utilisateur> lesUtilisateurs)
 	{
 		String reponse = "";
@@ -156,11 +168,14 @@ public class PasserelleServicesWebXML extends PasserelleXML {
 		}
 	}
 
-	// Méthode statique pour créer un utilisateur (service CreerUnUtilisateur)
-	// La méthode doit recevoir 3 paramètres :
-	//   pseudo : le pseudo de l'utilisateur qui fait appel au service web
-	//   adrMail : son adresse mail
-	//   numTel : son numéro de téléphone
+	/**
+	 * Description
+	 * Méthode statique pour créer un utilisateur (service CreerUnUtilisateur)
+	 * @param pseudo le pseudo de l'utilisateur qui fait appel au service web
+	 * @param adrMail son adresse mail
+	 * @param numTel  son numéro de téléphone
+	 * @author aubin
+	 */
 	public static String creerUnUtilisateur(String pseudo, String adrMail, String numTel)
 	{
 		String reponse = "";
@@ -190,12 +205,14 @@ public class PasserelleServicesWebXML extends PasserelleXML {
 		}
 	}
 
-	// Méthode statique pour supprimer un utilisateur (service SupprimerUnUtilisateur)
-	// Ce service permet à un administrateur de supprimer un utilisateur (à condition qu'il ne possède aucune trace enregistrée)
-	// La méthode doit recevoir 3 paramètres :
-	//   pseudo : le pseudo de l'administrateur qui fait appel au service web
-	//   mdpSha1 : le mot de passe hashé en sha1
-	//   pseudoAsupprimer : le pseudo de l'utilisateur à supprimer
+	/**
+	 * Description
+	 * Ce service permet à un administrateur de supprimer un utilisateur (à condition qu'il ne possède aucune trace enregistrée)
+	 * @param pseudo le pseudo de l'administrateur qui fait appel au service web
+	 * @param mdpSha1 le mot de passe hashé en sha1
+	 * @param pseudoAsupprimer le pseudo de l'utilisateur à supprimer
+	 * @author aubin
+	 */
 	public static String supprimerUnUtilisateur(String pseudo, String mdpSha1, String pseudoAsupprimer)
 	{
 		String reponse = "";
@@ -225,12 +242,15 @@ public class PasserelleServicesWebXML extends PasserelleXML {
 		}
 	}
 
-	// Méthode statique pour modifier son mot de passe (service ChangerDeMdp)
-	// La méthode doit recevoir 4 paramètres :
-	//    pseudo : le pseudo de l'utilisateur qui fait appel au service web
-	//    mdpSha1 : le mot de passe hashé en sha1
-	//    nouveauMdp : le nouveau mot de passe
-	//    confirmationMdp : la confirmation du nouveau mot de passe
+	/**
+	 * Description
+	 * Méthode statique pour modifier son mot de passe (service ChangerDeMdp)
+	 * @param pseudo le pseudo de l'utilisateur qui fait appel au service web
+	 * @param mdpSha1 le mot de passe hashé en sha1
+	 * @param nouveauMdp le mot de passe hashé en sha1
+	 * @param confirmationMdp la confirmation du nouveau mot de passe
+	 * @author aubin
+	 */
 	public static String changerDeMdp(String pseudo, String mdpSha1, String nouveauMdp, String confirmationMdp)
 	{
 		String reponse = "";
@@ -265,9 +285,13 @@ public class PasserelleServicesWebXML extends PasserelleXML {
 	// --------------------------------- méthodes restant à développer ---------------------------------
 	// -------------------------------------------------------------------------------------------------
 
-	// Méthode statique pour demander un nouveau mot de passe (service DemanderMdp)
-	// La méthode doit recevoir 1 paramètre :
-	//    pseudo : le pseudo de l'utilisateur
+	/**
+	 * Description
+	 * Méthode statique pour demander un nouveau mot de passe (service DemanderMdp)
+	 * @param pseudo
+	 * @author aubin
+	 */
+
 	public static String demanderMdp(String pseudo) {
 		String reponse = "";
 		try
@@ -295,11 +319,15 @@ public class PasserelleServicesWebXML extends PasserelleXML {
 		}
 	}
 
-	// Méthode statique pour obtenir la liste des utilisateurs que j'autorise (service GetLesUtilisateursQueJautorise)
-	// La méthode doit recevoir 3 paramètres :
-	//    pseudo : le pseudo de l'utilisateur qui fait appel au service web
-	//    mdpSha1 : le mot de passe hashé en sha1
-	//    lesUtilisateurs : collection (vide) à remplir à partir des données fournies par le service web
+	/**
+	 * Description
+	 *  Méthode statique pour obtenir la liste des utilisateurs que j'autorise (service GetLesUtilisateursQueJautorise)
+	 * @param pseudo le pseudo de l'utilisateur qui fait appel au service web
+	 * @param mdpSha1 le mot de passe hashé en sha1
+	 * @param lesUtilisateurs collection (vide) à remplir à partir des données fournies par le service web
+	 *@author aubin
+	 */
+
 	public static String getLesUtilisateursQueJautorise(String pseudo, String mdpSha1, ArrayList<Utilisateur> lesUtilisateurs)
 	{
 		String reponse = "";
@@ -370,11 +398,14 @@ public class PasserelleServicesWebXML extends PasserelleXML {
 		}
 	}
 
-	// Méthode statique pour obtenir la liste des utilisateurs qui m'autorisent (service GetLesUtilisateursQuiMautorisent)
-	// La méthode doit recevoir 3 paramètres :
-	//    pseudo : le pseudo de l'utilisateur qui fait appel au service web
-	//    mdpSha1 : le mot de passe hashé en sha1
-	//    lesUtilisateurs : collection (vide) à remplir à partir des données fournies par le service web
+	/**
+	 * Description
+	 * Méthode statique pour obtenir la liste des utilisateurs qui m'autorisent (service GetLesUtilisateursQuiMautorisent)
+	 * @param pseudo le pseudo de l'utilisateur qui fait appel au service web
+	 * @param mdpSha1  le mot de passe hashé en sha1
+	 * @param lesUtilisateurs  collection (vide) à remplir à partir des données fournies par le service web
+	 * @author aubin
+	 */
 	public static String getLesUtilisateursQuiMautorisent(String pseudo, String mdpSha1, ArrayList<Utilisateur> lesUtilisateurs)
 	{
 
@@ -446,13 +477,17 @@ public class PasserelleServicesWebXML extends PasserelleXML {
 		}
 	}
 
-	// Méthode statique pour demander une autorisation (service DemanderUneAutorisation)
-	// La méthode doit recevoir 5 paramètres :
-	//   pseudo : le pseudo de l'utilisateur qui fait appel au service web
-	//   mdpSha1 : le mot de passe hashé en sha1
-	//   pseudoDestinataire : le pseudo de l'utilisateur à qui on demande l'autorisation
-	//   texteMessage : le texte d'un message accompagnant la demande
-	//   nomPrenom : le nom et le prénom du demandeur
+	/**
+	 * Description
+	 * Méthode statique pour demander une autorisation (service DemanderUneAutorisation)
+	 * @param pseudo le pseudo de l'utilisateur qui fait appel au service web
+	 * @param mdpSha1 le mot de passe hashé en sha1
+	 * @param pseudoDestinataire le pseudo de l'utilisateur à qui on demande l'autorisation
+	 * @param texteMessage le texte d'un message accompagnant la demande
+	 * @param nomPrenom le nom et le prénom du demandeur
+	 * @author aubin
+	 */
+
 	public static String demanderUneAutorisation(String pseudo, String mdpSha1, String pseudoDestinataire, String texteMessage, String nomPrenom)
 	{
 		String reponse = "";
@@ -485,12 +520,16 @@ public class PasserelleServicesWebXML extends PasserelleXML {
 		}
 	}
 
-	// Méthode statique pour retirer une autorisation (service RetirerUneAutorisation)
-	// La méthode doit recevoir 4 paramètres :
-	//   pseudo : le pseudo de l'utilisateur qui fait appel au service web
-	//   mdpSha1 : le mot de passe hashé en sha1
-	//   pseudoARetirer : le pseudo de l'utilisateur à qui on veut retirer l'autorisation
-	//   texteMessage : le texte d'un message pour un éventuel envoi de courriel
+	/**
+	 * description
+	 * Méthode statique pour retirer une autorisation (service RetirerUneAutorisation)
+	 * @param pseudo le pseudo de l'utilisateur qui fait appel au service web
+	 * @param mdpSha1 le mot de passe hashé en sha1
+	 * @param pseudoARetirer le pseudo de l'utilisateur à qui on veut retirer l'autorisation
+	 * @param texteMessage le texte d'un message pour un éventuel envoi de courriel
+	 * @author aubin
+	 */
+
 	public static String retirerUneAutorisation(String pseudo, String mdpSha1, String pseudoARetirer, String texteMessage)
 	{
 		String reponse = "";
@@ -521,11 +560,15 @@ public class PasserelleServicesWebXML extends PasserelleXML {
 		}
 	}
 
-	// Méhode statique pour envoyer la position de l'utilisateur (service EnvoyerPosition)
-	// La méthode doit recevoir 3 paramètres :
-	//    pseudo : le pseudo de l'utilisateur qui fait appel au service web
-	//    mdpSha1 : le mot de passe hashé en sha1
-	//    lePoint : un objet PointDeTrace (vide) qui permettra de récupérer le numéro attribué à partir des données fournies par le service web
+	/**
+	 * Description
+	 * Methode statique pour envoyer la position de l'utilisateur (service EnvoyerPosition)
+	 * @param pseudo le pseudo de l'utilisateur qui fait appel au service web
+	 * @param mdpSha1 le mot de passe hashé en sha1
+	 * @param lePoint un objet PointDeTrace (vide) qui permettra de récupérer le numéro attribué à partir des données fournies par le service web
+	 * @author aubin
+	 */
+
 	public static String envoyerPosition(String pseudo, String mdpSha1, PointDeTrace lePoint)
 	{
 		String reponse = "";
@@ -561,12 +604,16 @@ public class PasserelleServicesWebXML extends PasserelleXML {
 		}
 	}
 
-	// Méthode statique pour obtenir un parcours et la liste de ses points (service GetUnParcoursEtSesPoints)
-	// La méthode doit recevoir 4 paramètres :
-	//    pseudo : le pseudo de l'utilisateur qui fait appel au service web
-	//    mdpSha1 : le mot de passe hashé en sha1
-	//    idTrace : l'id de la trace à consulter
-	//    laTrace : objet Trace (vide) à remplir à partir des données fournies par le service web
+	/**
+	 * Description
+	 * Méthode statique pour obtenir un parcours et la liste de ses points (service GetUnParcoursEtSesPoints)
+	 * @param pseudo le pseudo de l'utilisateur qui fait appel au service web
+	 * @param mdpSha1 le mot de passe hashé en sha1
+	 * @param idTrace l'id de la trace à consulter
+	 * @param laTrace objet Trace (vide) à remplir à partir des données fournies par le service web
+	 * @author aubin
+	 */
+
 	public static String getUnParcoursEtSesPoints(String pseudo, String mdpSha1, int idTrace, Trace laTrace)
 	{
 		String reponse = "";
@@ -638,12 +685,15 @@ public class PasserelleServicesWebXML extends PasserelleXML {
 		}
 	}
 
-	// Méthode statique pour obtenir la liste des parcours d'un utilisateur (service GetLesParcoursDunUtilisateur)
-	// La méthode doit recevoir 4 paramètres :
-	//    pseudo : le pseudo de l'utilisateur qui fait appel au service web
-	//    mdpSha1 : le mot de passe hashé en sha1
-	//    idUtilisateur : l'id de l'utilisateur dont on veut la liste des parcours
-	//    lesTraces : collection (vide) à remplir à partir des données fournies par le service web
+	/**
+	 * Description
+	 * Méthode statique pour obtenir la liste des parcours d'un utilisateur (service GetLesParcoursDunUtilisateur)
+	 * @param pseudo le pseudo de l'utilisateur qui fait appel au service web
+	 * @param mdpSha1 le mot de passe hashé en sha1
+	 * @param pseudoConsulte pseudo de l'utilisateur dont on veut la liste des parcours
+	 * @param lesTraces collection (vide) à remplir à partir des données fournies par le service web
+	 * @author aubin
+	 */
 	public static String getLesParcoursDunUtilisateur(String pseudo, String mdpSha1, String pseudoConsulte, ArrayList<Trace> lesTraces)
 	{
 		String reponse = "";
@@ -716,11 +766,15 @@ public class PasserelleServicesWebXML extends PasserelleXML {
 		}
 	}
 
-	// Méthode statique pour supprimer un parcours (service SupprimerUnParcours)
-	// La méthode doit recevoir 3 paramètres :
-	//   pseudo : le pseudo de l'utilisateur qui fait appel au service web
-	//   mdpSha1 : le mot de passe hashé en sha1
-	//   idTrace : l'id de la trace à supprimer
+	/**
+	 * Description
+	 * Méthode statique pour supprimer un parcours (service SupprimerUnParcours)
+	 * @param pseudo le pseudo de l'utilisateur qui fait appel au service web
+	 * @param mdpSha1 le mot de passe hashé en sha1
+	 * @param idTrace l'id de la trace à supprimer
+	 * @author aubin
+	 */
+
 	public static String supprimerUnParcours(String pseudo, String mdpSha1, int idTrace)
 	{
 		String reponse = "";
@@ -750,11 +804,15 @@ public class PasserelleServicesWebXML extends PasserelleXML {
 		}
 	}
 
-	// Méthode statique pour démarrer l'enregistrement d'un parcours (service DemarrerEnregistrementParcours)
-	// La méthode doit recevoir 3 paramètres :
-	//    pseudo : le pseudo de l'utilisateur qui fait appel au service web
-	//    mdpSha1 : le mot de passe hashé en sha1
-	//    laTrace : un objet Trace (vide) à remplir à partir des données fournies par le service web
+	/**
+	 * Description
+	 * Méthode statique pour démarrer l'enregistrement d'un parcours (service DemarrerEnregistrementParcours)
+	 * @param pseudo le pseudo de l'utilisateur qui fait appel au service web
+	 * @param mdpSha1 le mot de passe hashé en sha1
+	 * @param laTrace un objet Trace (vide) à remplir à partir des données fournies par le service web
+	 * @author aubin
+	 */
+
 	public static String demarrerEnregistrementParcours(String pseudo, String mdpSha1, Trace laTrace)
 	{
 		String reponse = "";
@@ -784,11 +842,15 @@ public class PasserelleServicesWebXML extends PasserelleXML {
 		}
 	}
 
-	// Méthode statique pour terminer l'enregistrement d'un parcours (service ArreterEnregistrementParcours)
-	// La méthode doit recevoir 3 paramètres :
-	//    pseudo : le pseudo de l'utilisateur qui fait appel au service web
-	//    mdpSha1 : le mot de passe hashé en sha1
-	//    idTrace : l'id de la trace à terminer
+	/**
+	 * Description
+	 * Méthode statique pour terminer l'enregistrement d'un parcours (service ArreterEnregistrementParcours)
+	 * @param pseudo le pseudo de l'utilisateur qui fait appel au service web
+	 * @param mdpSha1 le mot de passe hashé en sha1
+	 * @param idTrace l'id de la trace à terminer
+	 * @author aubin
+	 */
+
 	public static String arreterEnregistrementParcours(String pseudo, String mdpSha1, int idTrace)
 	{
 		String reponse = "";
